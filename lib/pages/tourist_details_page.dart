@@ -5,9 +5,13 @@ class TouristDetailsPage extends StatelessWidget {
   const TouristDetailsPage({
     Key? key,
     required this.image,
+    required this.name,
+    required this.descirption,
   }) : super(key: key);
 
   final String image;
+  final String name;
+  final String descirption;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,7 @@ class TouristDetailsPage extends StatelessWidget {
                             borderRadius: const BorderRadius.vertical(
                                 bottom: Radius.circular(20)),
                             image: DecorationImage(
-                              image: AssetImage(image),
+                              image: NetworkImage(image),
                               fit: BoxFit.cover,
                             ),
                             boxShadow: [
@@ -82,7 +86,7 @@ class TouristDetailsPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Sea of Peace",
+                            name,
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                           const SizedBox(height: 5),
@@ -121,7 +125,7 @@ class TouristDetailsPage extends StatelessWidget {
                   const SizedBox(height: 15),
                   const SizedBox(height: 10),
                   Text(
-                    'he sky above is a brilliant blue, dotted with fluffy, white clouds that drift lazily in the gentle breeze. In the distance, majestic mountains rise, their peaks kissed by the golden rays of the setting sun, casting a warm, amber glow over the landscape.A crystal-clear river winds through the valley, its waters sparkling like diamonds in the sunlight. Along the riverbanks, wildflowers bloom in a riot of colors—vivid purples, yellows, and pinks—that sway gently in the wind, filling the air with a sweet, delicate fragrance. Birds chirp melodiously from the trees, their songs harmonizing with the soft rustle of leaves and the distant sound of a waterfall cascading over smooth stones.',
+                    descirption,
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold),
                     maxLines: 7,

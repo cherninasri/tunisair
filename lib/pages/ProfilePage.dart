@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:travel_app/common/custom_container.dart';
 import 'package:travel_app/common/shimmers/ProfileAppBar.dart';
 import 'package:travel_app/common/shimmers/cutomButtomn.dart';
 import 'package:travel_app/constants/constants.dart';
+import 'package:travel_app/controller/LoginController.dart';
+import 'package:travel_app/login/login.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final c = Get.find<LoginController>();
+
+    final box = GetStorage();
+
+    var user = box.read("user");
+    var token = box.read("token");
+
+    if (token == null) {
+      return const LoginPage();
+    }
+
     return Scaffold(
+        backgroundColor: kPrimary,
         appBar: PreferredSize(
-            preferredSize: Size.fromHeight(40.h), child: ProfileAppBar()),
+            preferredSize: Size.fromHeight(50.h), child: ProfileAppBar()),
         body: SafeArea(
-            child: Padding(
-          padding: EdgeInsets.only(top: 50),
           child: CustomContainer(
               containerConrent: Column(
             children: [
@@ -36,6 +50,11 @@ class ProfilePage extends StatelessWidget {
                         CircleAvatar(
                           radius: 23.r,
                           backgroundColor: kSecondary,
+                          backgroundImage: NetworkImage(user == null
+                              ? 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg'
+                              : user["profile"] == ''
+                                  ? 'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg'
+                                  : user["profile"]),
                         ),
                         SizedBox(
                           width: 20,
@@ -44,14 +63,14 @@ class ProfilePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "mustafa",
+                              user != null ? '${user['username']}' : "Username",
                               style: TextStyle(
                                   color: kDark,
                                   fontWeight: FontWeight.normal,
                                   fontSize: 14),
                             ),
                             Text(
-                              "aoudi",
+                              user != null ? '${user['email']}' : "email",
                               style: TextStyle(
                                   color: kDark,
                                   fontWeight: FontWeight.normal,
@@ -82,8 +101,8 @@ class ProfilePage extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     ProfileTitleWidget(
-                      title: 'My planes',
-                      icon: Ionicons.file_tray,
+                      title: 'My Orders',
+                      icon: Ionicons.fast_food_outline,
                       onTap: () {
                         // Get.to(() => LaodingProfile());
                       },
@@ -135,7 +154,7 @@ class ProfilePage extends StatelessWidget {
               )
             ],
           )),
-        )));
+        ));
   }
 }
 

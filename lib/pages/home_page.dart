@@ -20,10 +20,6 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text("Good Morning"),
-            Text(
-              "Tetteh Jeron Asiedu",
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
           ],
         ),
         actions: const [
@@ -71,7 +67,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          const NearbyPlaces(),
+          NearbyPlaces()
         ],
       ),
     );

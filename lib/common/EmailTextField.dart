@@ -40,26 +40,26 @@ class EmailTextField extends StatelessWidget {
         hintText: hintText,
         prefixIcon: prefixIcon,
         isDense: true,
-        contentPadding: EdgeInsets.all(6.h),
+        contentPadding: EdgeInsets.all(20.h),
         hintStyle: TextStyle(
             color: KGray, fontSize: 12, fontWeight: FontWeight.normal),
         errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kRed, width: .5),
+            borderSide: BorderSide(color: kRed, width: 1),
             borderRadius: BorderRadius.all(Radius.circular(12.r))),
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kPrimary, width: .5),
+            borderSide: BorderSide(color: KGray, width: 1),
             borderRadius: BorderRadius.all(Radius.circular(12.r))),
         focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kRed, width: .5),
+            borderSide: BorderSide(color: kRed, width: 1),
             borderRadius: BorderRadius.all(Radius.circular(12.r))),
         disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: KGray, width: .5),
+            borderSide: BorderSide(color: KGray, width: 1),
             borderRadius: BorderRadius.all(Radius.circular(12.r))),
         enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kPrimary, width: .5),
+            borderSide: BorderSide(color: KGray, width: 1),
             borderRadius: BorderRadius.all(Radius.circular(12.r))),
         border: OutlineInputBorder(
-            borderSide: BorderSide(color: kPrimary, width: .5),
+            borderSide: BorderSide(color: KGray, width: 1),
             borderRadius: BorderRadius.all(Radius.circular(12.r))),
       ),
     );

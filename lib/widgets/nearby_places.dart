@@ -1,4 +1,10 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:travel_app/controller/testControl.dart';
+
 import 'package:travel_app/models/nearby_places_model.dart';
 import 'package:travel_app/pages/tourist_details_page.dart';
 import 'package:travel_app/widgets/distance.dart';
@@ -8,8 +14,10 @@ class NearbyPlaces extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final c = Get.find<TetyController>();
+
     return Column(
-      children: List.generate(nearbyPlaces.length, (index) {
+      children: List.generate(c.alldataList.length, (index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 10),
           child: SizedBox(
@@ -27,7 +35,9 @@ class NearbyPlaces extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => TouristDetailsPage(
-                          image: nearbyPlaces[index].image,
+                          image: c.alldataList[index].image,
+                          descirption: c.alldataList[index].description,
+                          name: c.alldataList[index].name,
                         ),
                       ));
                 },
@@ -37,8 +47,8 @@ class NearbyPlaces extends StatelessWidget {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(
-                          nearbyPlaces[index].image,
+                        child: Image.network(
+                          c.alldataList[index].image,
                           height: double.maxFinite,
                           width: 130,
                           fit: BoxFit.cover,
@@ -49,8 +59,8 @@ class NearbyPlaces extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "Sea of Peace",
+                            Text(
+                              c.alldataList[index].name,
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,

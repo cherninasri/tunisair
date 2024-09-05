@@ -22,7 +22,7 @@ class BackGroundContainer extends StatelessWidget {
             topRight: Radius.circular(20.r),
           ),
           image: DecorationImage(
-            image: AssetImage('assets/images/restaurant_bk.png'),
+            image: AssetImage('assets/t.jpg'),
             fit: BoxFit.cover,
             opacity: .7,
           )),

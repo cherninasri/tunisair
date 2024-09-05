@@ -24,7 +24,7 @@ class CustomButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
           width: btnwidh ?? widthh,
-          height: btnheigh ?? 28.h,
+          height: 50.h,
           decoration: BoxDecoration(
               color: color ?? kPrimary,
               borderRadius: BorderRadius.circular(12.r)),
@@ -32,7 +32,7 @@ class CustomButton extends StatelessWidget {
             child: Text(
               text ?? 'button',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 16,
                 color: kLightwhite,
                 fontWeight: FontWeight.w500,
               ),

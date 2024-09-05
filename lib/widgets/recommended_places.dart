@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import 'package:ionicons/ionicons.dart';
+import 'package:travel_app/GetServices/testservicese.dart';
+import 'package:travel_app/controller/testControl.dart';
 import 'package:travel_app/models/recommended_places_model.dart';
 import 'package:travel_app/pages/tourist_details_page.dart';
 
@@ -8,6 +12,12 @@ class RecommendedPlaces extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final c = Get.find<TetyController>();
+
+    if (c.alldataList.length > 0) {
+      print(c.alldataList[0].description);
+    }
+
     return SizedBox(
       height: 235,
       child: ListView.separated(
@@ -30,7 +40,9 @@ class RecommendedPlaces extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => TouristDetailsPage(
-                            image: recommendedPlaces[index].image,
+                            image: c.alldataList[index].image,
+                            descirption: c.alldataList[index].description,
+                            name: c.alldataList[index].name,
                           ),
                         ));
                   },
@@ -40,8 +52,8 @@ class RecommendedPlaces extends StatelessWidget {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
-                          child: Image.asset(
-                            recommendedPlaces[index].image,
+                          child: Image.network(
+                            c.alldataList[index].image,
                             width: double.maxFinite,
                             fit: BoxFit.cover,
                             height: 150,
@@ -98,7 +110,7 @@ class RecommendedPlaces extends StatelessWidget {
           separatorBuilder: (context, index) => const Padding(
                 padding: EdgeInsets.only(right: 10),
               ),
-          itemCount: recommendedPlaces.length),
+          itemCount: c.alldataList.length),
     );
   }
 }
