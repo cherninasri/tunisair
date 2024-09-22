@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:travel_app/login/login.dart';
 import 'package:travel_app/pages/ProfilePage.dart';
 import 'package:travel_app/pages/Search.dart';
+import 'package:travel_app/pages/VoleMain.dart';
 import 'package:travel_app/pages/home_page.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,8 +19,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     List<Widget> bottomScreens = [
       HomePage(),
-      SearchPage(),
-      ProfilePage(),
+      TravelFormScreen(),
+      LoginPage(),
     ];
     return Scaffold(
       body: Stack(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
 import 'package:travel_app/Models%202/LoginModel.dart';
 import 'package:travel_app/Register/register.dart';
@@ -12,6 +13,7 @@ import 'package:travel_app/common/back_ground_container.dart';
 import 'package:travel_app/common/shimmers/cutomButtomn.dart';
 import 'package:travel_app/constants/constants.dart';
 import 'package:travel_app/controller/LoginController.dart';
+import 'package:travel_app/pages/ProfilePage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -120,6 +122,11 @@ class _LoginPageState extends State<LoginPage> {
                                   password: _passwordController.text);
                               String data = loginModelToJson(model);
                               c.loginFunction(data);
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ProfilePage(),
+                                  ));
                             },
                             text: "L O G I N",
                             btnheigh: 35.h,

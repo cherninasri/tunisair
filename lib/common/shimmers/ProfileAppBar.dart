@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:travel_app/constants/constants.dart';
+import 'package:travel_app/pages/MainScreen.dart';
 
 class ProfileAppBar extends StatelessWidget {
   const ProfileAppBar({super.key});
@@ -14,6 +15,15 @@ class ProfileAppBar extends StatelessWidget {
     return AppBar(
       backgroundColor: kOffwhite,
       elevation: 0,
+      title: GestureDetector(
+          onTap: () {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MainScreen(),
+                ));
+          },
+          child: Icon(Icons.arrow_back)),
       actions: [
         GestureDetector(
           onTap: () {},

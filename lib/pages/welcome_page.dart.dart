@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/login/login.dart';
 import 'package:travel_app/pages/MainScreen.dart';
+import 'package:travel_app/pages/VoleMain.dart';
 import 'package:travel_app/pages/home_page.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -47,7 +48,7 @@ class WelcomePage extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginPage(),
+                            builder: (context) => MainScreen(),
                           ),
                         );
                       },

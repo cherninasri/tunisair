@@ -48,9 +48,6 @@ class LoginController extends GetxController {
         Timer.periodic(Duration(seconds: 1), (timer) {
           loading.value = false;
         });
-
-        Get.offAll(() => MainScreen(),
-            transition: Transition.fade, duration: Duration(milliseconds: 900));
       }
       if (response.statusCode == 400) {
         String text = jsonDecode(response.body)["message"];

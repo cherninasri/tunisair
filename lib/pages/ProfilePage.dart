@@ -10,6 +10,8 @@ import 'package:travel_app/common/shimmers/cutomButtomn.dart';
 import 'package:travel_app/constants/constants.dart';
 import 'package:travel_app/controller/LoginController.dart';
 import 'package:travel_app/login/login.dart';
+import 'package:travel_app/widgets/EditeProfile.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -101,19 +103,26 @@ class ProfilePage extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     ProfileTitleWidget(
-                      title: 'My Orders',
-                      icon: Ionicons.fast_food_outline,
+                      title: 'Edite profile',
+                      icon: Icons.person,
                       onTap: () {
-                        // Get.to(() => LaodingProfile());
+                        Get.to(() => EditProfileScreen());
                       },
                     ),
                     ProfileTitleWidget(
-                        title: 'My Favorite Places',
-                        icon: Ionicons.heart_outline),
+                        title: 'History voles', icon: Ionicons.planet),
                     ProfileTitleWidget(
-                        title: 'Review', icon: Ionicons.chatbubble_outline),
+                      title: 'Reclamtion',
+                      icon: Ionicons.chatbubble_outline,
+                      onTap: () async {
+                        Uri url = Uri.parse("mailto:");
+                        if (!await launchUrl(url)) {
+                          print('Could not launch $url');
+                        }
+                      },
+                    ),
                     ProfileTitleWidget(
-                        title: 'Coupons',
+                        title: 'Convert',
                         icon: MaterialCommunityIcons.tag_outline),
                   ],
                 ),

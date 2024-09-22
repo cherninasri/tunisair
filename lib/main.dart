@@ -5,6 +5,7 @@ import 'package:travel_app/GetServices/testservicese.dart';
 import 'package:travel_app/Register/register.dart';
 import 'package:travel_app/constants/constants.dart';
 import 'package:travel_app/pages/MainScreen.dart';
+import 'package:travel_app/pages/VoleMain.dart';
 import 'package:travel_app/pages/home_page.dart';
 
 import 'package:travel_app/pages/welcome_page.dart.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
               scaffoldBackgroundColor: kOffwhite,
               iconTheme: IconThemeData(color: kDark),
             ),
-            home: const WelcomePage(),
+            home: WelcomePage(),
           );
         });
   }
