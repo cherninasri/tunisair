@@ -14,10 +14,6 @@ class RecommendedPlaces extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = Get.find<TetyController>();
 
-    if (c.alldataList.length > 0) {
-      print(c.alldataList[0].description);
-    }
-
     return SizedBox(
       height: 235,
       child: ListView.separated(
@@ -62,8 +58,8 @@ class RecommendedPlaces extends StatelessWidget {
                         const SizedBox(height: 5),
                         Row(
                           children: [
-                            const Text(
-                              "St Regis Bora Bora",
+                            Text(
+                              "${c.alldataList[index].name}",
                               style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
@@ -92,8 +88,8 @@ class RecommendedPlaces extends StatelessWidget {
                               size: 16,
                             ),
                             const SizedBox(width: 5),
-                            const Text(
-                              "French Polynesia",
+                            Text(
+                              '${c.alldataList[index].name} ',
                               style: TextStyle(
                                 fontSize: 12,
                               ),

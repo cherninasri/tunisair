@@ -11,6 +11,7 @@ import 'package:travel_app/constants/constants.dart';
 import 'package:travel_app/controller/LoginController.dart';
 import 'package:travel_app/login/login.dart';
 import 'package:travel_app/widgets/EditeProfile.dart';
+import 'package:travel_app/widgets/mony.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -23,11 +24,6 @@ class ProfilePage extends StatelessWidget {
     final box = GetStorage();
 
     var user = box.read("user");
-    var token = box.read("token");
-
-    if (token == null) {
-      return const LoginPage();
-    }
 
     return Scaffold(
         backgroundColor: kPrimary,
@@ -81,10 +77,13 @@ class ProfilePage extends StatelessWidget {
                           ],
                         ),
                         Spacer(),
-                        Icon(
-                          MaterialCommunityIcons.image_edit_outline,
-                          size: 23,
-                        )
+                        Obx(() => Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('points : ${c.points.value}'),
+                                Text('miles : ${c.miles.value}')
+                              ],
+                            ))
                       ]),
                     ),
                   )
@@ -122,8 +121,12 @@ class ProfilePage extends StatelessWidget {
                       },
                     ),
                     ProfileTitleWidget(
-                        title: 'Convert',
-                        icon: MaterialCommunityIcons.tag_outline),
+                      title: 'Convert',
+                      icon: MaterialCommunityIcons.tag_outline,
+                      onTap: () {
+                        Get.to(() => MonyPage());
+                      },
+                    ),
                   ],
                 ),
               ),

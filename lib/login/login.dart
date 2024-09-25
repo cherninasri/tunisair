@@ -40,6 +40,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     var c = Get.put(LoginController());
 
+    if (c.pf.value == true) {
+      return ProfilePage();
+    }
+
     return Scaffold(
       backgroundColor: kwhite,
       appBar: AppBar(

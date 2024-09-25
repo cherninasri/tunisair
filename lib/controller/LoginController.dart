@@ -19,6 +19,14 @@ class LoginController extends GetxController {
   //RxList<DatumC> dataList = RxList<DatumC>();
   final box = GetStorage();
   RxBool loading = false.obs;
+  RxBool pf = false.obs;
+  RxInt miles = 10000.obs;
+  RxDouble points = 0.0.obs;
+
+  void convertFunction() {
+    points.value = miles.value * 0.6;
+    miles.value = 0;
+  }
 
   void loginFunction(String data) async {
     loading.value = true;
@@ -47,6 +55,7 @@ class LoginController extends GetxController {
 
         Timer.periodic(Duration(seconds: 1), (timer) {
           loading.value = false;
+          pf.value = true;
         });
       }
       if (response.statusCode == 400) {
