@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:http/http.dart' as http;
-import 'package:travel_app/Models%202/FoodModel.dart';
+import 'package:travel_app/Models%202/plaveModel.dart';
 import 'package:travel_app/Models%202/voleModel.dart';
 import 'package:travel_app/constants/constants.dart';
 import 'package:travel_app/pages/allvoles.dart';

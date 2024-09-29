@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:http/http.dart' as http;
-import 'package:travel_app/Models%202/FoodModel.dart';
+import 'package:travel_app/Models%202/plaveModel.dart';
 
 class SerchController extends GetxController {
   //RxList<DatumC> dataList = RxList<DatumC>();
@@ -18,7 +18,8 @@ class SerchController extends GetxController {
     str.value = 'a';
     dataSearch.clear();
 
-    final url = Uri.parse('http://10.0.2.2:5000/api/Vole/search/$searchdata');
+    final url =
+        Uri.parse('http://51.120.240.58:8083/api/Vole/search/$searchdata');
 
     try {
       final response = await http.get(url);

@@ -159,7 +159,9 @@ class ProfilePage extends StatelessWidget {
                 height: 20.h,
               ),
               CustomButton(
-                onTap: () {},
+                onTap: () {
+                  c.logout();
+                },
                 color: kRed,
                 text: 'Logout',
                 btnheigh: 35,

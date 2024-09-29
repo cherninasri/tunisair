@@ -1,13 +1,13 @@
-class FoodModel {
+class PlacesModel {
   int result;
   List<Datum> data;
 
-  FoodModel({
+  PlacesModel({
     required this.result,
     required this.data,
   });
 
-  factory FoodModel.fromJson(Map<String, dynamic> json) => FoodModel(
+  factory PlacesModel.fromJson(Map<String, dynamic> json) => PlacesModel(
         result: json["Result"],
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
       );

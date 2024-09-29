@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                 "Recommendation",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              TextButton(onPressed: () {}, child: const Text("View All"))
+              TextButton(onPressed: () {}, child: const Text(""))
             ],
           ),
           const SizedBox(height: 10),
@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
                 "Nearby From You",
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-              TextButton(onPressed: () {}, child: const Text("View All"))
+              TextButton(onPressed: () {}, child: const Text(""))
             ],
           ),
           const SizedBox(height: 10),

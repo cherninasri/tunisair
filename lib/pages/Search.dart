@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:travel_app/Models%202/FoodModel.dart';
+import 'package:travel_app/Models%202/plaveModel.dart';
 import 'package:travel_app/controller/searchController.dart';
-import 'package:travel_app/controller/testControl.dart';
+
 import 'package:travel_app/pages/tourist_details_page.dart';
 import 'package:travel_app/widgets/distance.dart';
 import 'package:travel_app/widgets/nearby_places.dart';

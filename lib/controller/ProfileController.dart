@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:http/http.dart' as http;
-import 'package:travel_app/Models%202/FoodModel.dart';
+
 import 'package:travel_app/Models%202/voleModel.dart';
 import 'package:travel_app/constants/constants.dart';
 import 'package:travel_app/pages/allvoles.dart';
@@ -19,7 +19,7 @@ class ProfileController extends GetxController {
   void updateUserFunction(String id, Map<String, String> data) async {
     loading.value = true;
 
-    final url = Uri.parse('http://10.0.2.2:5000/api/user/update/$id');
+    final url = Uri.parse('http://51.120.240.58:8083/api/user/update/$id');
     Map<String, String> headers = {'Content-Type': 'application/json'};
 
     print("eeeee");

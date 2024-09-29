@@ -13,6 +13,7 @@ import 'package:travel_app/common/back_ground_container.dart';
 import 'package:travel_app/common/shimmers/cutomButtomn.dart';
 import 'package:travel_app/constants/constants.dart';
 import 'package:travel_app/controller/LoginController.dart';
+import 'package:travel_app/pages/Mainscreen.dart';
 import 'package:travel_app/pages/ProfilePage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -40,6 +41,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     var c = Get.put(LoginController());
 
+    print(c.pf.value);
+
     if (c.pf.value == true) {
       return ProfilePage();
     }
@@ -49,13 +52,15 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: kwhite,
-        title: Padding(
-            padding: EdgeInsets.only(left: 150),
-            child: Text(
-              'Log In ',
-              style: TextStyle(
-                  color: kDark, fontSize: 20, fontWeight: FontWeight.bold),
-            )),
+        title: GestureDetector(
+            onTap: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MainScreen(),
+                  ));
+            },
+            child: Icon(Icons.arrow_back)),
       ),
       body: Container(
         width: widthh,
@@ -126,11 +131,6 @@ class _LoginPageState extends State<LoginPage> {
                                   password: _passwordController.text);
                               String data = loginModelToJson(model);
                               c.loginFunction(data);
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ProfilePage(),
-                                  ));
                             },
                             text: "L O G I N",
                             btnheigh: 35.h,

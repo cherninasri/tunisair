@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'package:get/get.dart';
-import 'package:travel_app/Models%202/FoodModel.dart';
+import 'package:travel_app/Models%202/plaveModel.dart';
 import 'package:travel_app/controller/testControl.dart';
 
 class TestServices extends GetxService {
@@ -13,7 +13,7 @@ class TestServices extends GetxService {
 
   Future<void> fetchallData() async {
     c.isallLaoding.value = true;
-    final url = Uri.parse('http://10.0.2.2:5000/api/Vole');
+    final url = Uri.parse('http://51.120.240.58:8083/api/Vole');
     try {
       final response = await http.get(url);
 
